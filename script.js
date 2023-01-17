@@ -97,15 +97,20 @@ let upperCasedCharacters = [
 function getPasswordLength() {
 
 
-  let pwprompt = Number(prompt("How many characters would you like?"));
-  while ((pwprompt < 10)|| (pwprompt > 64))  { 
-    if (pwprompt > 64 ) {
+  let pwprompt = parseInt(prompt("How many characters would you like?"));
+  while ((pwprompt < 10) || (pwprompt > 64))  { 
+    while (pwprompt > 64 ) {
   alert("Max of 64!");
-  pwprompt = Number(prompt("How many characters would you like?"));
+  pwprompt = parseInt(prompt("How many characters would you like?"));
     }
-   if (pwprompt < 10) { 
-  pwprompt = Number(prompt("How many characters would you like?"));
+   while (pwprompt < 10) { 
+    alert("Minimum of 10!");
+  pwprompt = parseInt(prompt("How many characters would you like?"));
    } 
+   if (pwprompt === NaN) {
+    alert("Numbers only, loser!")
+    pwprompt = parseInt(prompt("How many characters would you like?"));
+   }
    else { return pwprompt; } 
   
   }
@@ -126,6 +131,9 @@ let upperInclude  = confirm("Would you like to include upper?");
 
 
 let chosenChars = [] 
+
+while (chosenChars <= numericCharacters.length) {
+
 if (specinclude === true)   {
   chosenChars = (chosenChars.concat(specialCharacters))
    }
@@ -142,11 +150,15 @@ if (specinclude === true)   {
           chosenChars = (chosenChars.concat(upperCasedCharacters));
            }  
 
-return(chosenChars);
-  
-          }
-    
-  
+
+if (chosenChars < numericCharacters.length) {
+  alert("You need to accept at least one!")
+} 
+
+}
+return(chosenChars);  
+
+}
   
   
   
