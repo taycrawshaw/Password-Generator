@@ -96,21 +96,25 @@ let upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordLength() {
 
+let pwprompt = parseInt(prompt("How many characters would you like?"));
 
-  let pwprompt = parseInt(prompt("How many characters would you like?"));
-  while ((pwprompt < 10) || (pwprompt > 64))  { 
+  while ((pwprompt < 10) || ((pwprompt > 64)) ||  ((pwprompt === NaN))    )  { 
     while (pwprompt > 64 ) {
   alert("Max of 64!");
   pwprompt = parseInt(prompt("How many characters would you like?"));
     }
-   while (pwprompt < 10) { 
+   
+    while (pwprompt < 10) { 
     alert("Minimum of 10!");
   pwprompt = parseInt(prompt("How many characters would you like?"));
    } 
-   if (pwprompt === NaN) {
-    alert("Numbers only, loser!")
+   
+   if (isNaN(pwprompt)) {
+    alert("Numbers only!")
     pwprompt = parseInt(prompt("How many characters would you like?"));
+    return false;
    }
+   
    else { return pwprompt; } 
   
   }
@@ -123,6 +127,7 @@ return pwprompt;
 
 function getCharacters() {
 
+  let chosenChars = [] 
 let specinclude = confirm("Would you like to include specials?") ;
 let numinclude = confirm("Would you like to include numbers?") ;
 let lowerInclude  = confirm("Would you like to include lower?");
@@ -130,7 +135,6 @@ let upperInclude  = confirm("Would you like to include upper?");
 
 
 
-let chosenChars = [] 
 
 while (chosenChars <= numericCharacters.length) {
 
@@ -153,6 +157,10 @@ if (specinclude === true)   {
 
 if (chosenChars < numericCharacters.length) {
   alert("You need to accept at least one!")
+specinclude = confirm("Would you like to include specials?") ;
+numinclude = confirm("Would you like to include numbers?") ;
+lowerInclude  = confirm("Would you like to include lower?");
+upperInclude  = confirm("Would you like to include upper?");
 } 
 
 }
