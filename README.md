@@ -5,6 +5,10 @@ Description
 
 Web application to generate the user a random password containing selected character groups. 
 
+
+![Capture](https://user-images.githubusercontent.com/119896882/226206115-957aa059-95c0-4eb6-ba80-d58f4bcb46a4.PNG)
+
+
 Usage
 
 Please follow live link here: https://matcrawshaw.github.io/Password-Generator/
